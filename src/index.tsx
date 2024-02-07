@@ -6,12 +6,20 @@ import { Homepage } from "./homepage";
 const app = new Elysia()
   .use(html())
   .use(staticPlugin())
-  .get("/", () => <Homepage />)
+  .get("/", () => <Homepage title="Hallo" />)
   .post("/clicked", () => {
     console.log("clicked");
   })
   .get("/hello", () => {
-    return <h1>Hello</h1>;
+    return (
+      <h1>
+        <title>Jo</title>
+        hey Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
+        quaerat maiores nemo necessitatibus ad praesentium. Totam corporis aut
+        natus rem harum fugit incidunt nesciunt, impedit, deleniti ea minus id
+        placeat!
+      </h1>
+    );
   })
   .get("/json", { a: 1, b: "hello" })
   .listen(3000);
